@@ -51,12 +51,12 @@ export default function Profile({navigation}){
     const handleDeleteAccount = async () => {
         // alert('delete acc')
         if(willDelete.trim() !== 'delete'){
-            alert('please type delete and click confirm to delete your account')
+            alert('please type "delete" and click confirm to delete your account')
         } else {
             setVisible(false)
             const user = auth.currentUser
             const uid = auth.currentUser.uid;
-            console.log(uid)
+            // console.log(uid)
             
             if (user) {
                 

@@ -34,7 +34,7 @@ const useGradualAnimation = () => {
   const { height } = useGradualAnimation();
 
   const fakeView = useAnimatedStyle(() => {
-    console.log('height: ', height.value)
+    // console.log('height: ', height.value)
     return {
       height: Math.abs(height.value),
     };
@@ -163,7 +163,7 @@ const useGradualAnimation = () => {
     setLoading(true)
     const oldLength = messages.length
     setLoadmore(loadmore + 20)
-    console.log(loadmore)
+    // console.log(loadmore)
     getConversation()
     setTimeout(() => {
       setLoading(false)

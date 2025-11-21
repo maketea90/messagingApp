@@ -29,32 +29,6 @@ export default function SendMessage({ scroll }) {
 
     getUsername()
 
-    // const showSub = Keyboard.addListener(
-    //   Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow',
-    //   (event) => {
-    //     const offset = event.endCoordinates.height - tabBarHeight
-    //     // console.log('keyboard height:', `${event.endCoordinates.height}`)
-    //     // console.log("Tab Bar Height:", `${tabBarHeight}`);
-    //     // console.log('offset', `${offset}`)
-    //     // const offset = event.endCoordinates.height/2 - 12
-    //     console.log(`${offset}`)
-    //     setKeyboardOffset(offset)
-    //     scroll.current?.scrollToOffset({offset: 0, animated: false})
-        
-    //   }
-    // );
-
-    // const hideSub = Keyboard.addListener(
-    //   Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide',
-    //   () => {
-    //     setKeyboardOffset(8)
-    //   }
-    // );
-
-    // return () => {
-    //   showSub.remove();
-    //   hideSub.remove();
-    // };
   }, []);
 
   const sendMessage = async () => {
@@ -66,9 +40,6 @@ export default function SendMessage({ scroll }) {
     }
 
     const convo = await AsyncStorage.getItem('conversationId')
-
-    // console.log(localStorage.getItem('conversationId'))
-    // console.log(convo)
 
     const result = await addDoc(collection(db, "messages"), {
       conversationId: convo,
