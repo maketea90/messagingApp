@@ -8,7 +8,7 @@ This is a messaging app built in React-Native, with Firebase for storage/authent
 
 The landing page for this app is an email/password sign up page. Users can sign up, log in, choose a username, and begin messaging any other signed up users. Once an account is created they can also log out, or delete their account entirely.
 
-Messages load dynamically (20 most recent on initial render and 20 more at a time when you scroll to the top). When all messages have loaded the user is alerted to this fact and no more fetches are made.
+Messages load dynamically (20 most recent on initial render and 20 more at a time when you scroll to the top). When all messages have loaded the user is alerted and no more fetches are made.
 
 Deleting your account deletes all associated records in the firestore database.
 
