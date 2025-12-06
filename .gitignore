@@ -43,3 +43,4 @@ yarn-error.*
 firebase-debug.log
 .env_old
 old*
+.env
