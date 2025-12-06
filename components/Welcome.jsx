@@ -15,8 +15,13 @@ export default function App({navigation}) {
     const [loading, setLoading] = useState(false)
 
     const createUser = async () => {
-        
-        const status = await validatePassword(auth, password);
+        let status
+        try {
+            status = await validatePassword(auth, password);
+
+        } catch (err) {
+            console.log(err)
+        }
         
         if (!status.isValid){
             // Password could not be validated. Use the status to show what

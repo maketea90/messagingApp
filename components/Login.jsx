@@ -40,19 +40,28 @@ export default function Login({ navigation }) {
         setLoading(true)
 
         try{
+            console.log('attempting sign in')
             const result = await signInWithEmailAndPassword(auth, email, password)
+            console.log('signed in')
         } catch (error){
             if(error.code === 'auth/invalid-credential'){
                 alert('The email/password combination you entered is incorrect.')
             } else {
-                alert(error.message)
+                alert(error)
+                console.log(error)
             }
             setLoading(false)
             return
         }
+        console.log('checking user doc')
+        let currentUserDoc
+        try {
+            currentUserDoc = await getDoc(doc(db, 'users', auth.currentUser.uid))
 
-        const currentUserDoc = await getDoc(doc(db, 'users', auth.currentUser.uid))
-
+        } catch (err) {
+            console.log(err)
+        }
+        console.log('complete')
         const isNewUser = !currentUserDoc.exists()
 
         await AsyncStorage.setItem("isNewUser", `${isNewUser}`)
