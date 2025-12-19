@@ -1,6 +1,6 @@
 # React-Native messaging app
 
-This is a messaging app built in React-Native, with Firebase for storage/authentication.
+This is a messaging app built in React-Native (bundled using expo), with Firebase for storage/authentication.
 
 ## Project Description
 
