@@ -42,7 +42,7 @@ One of the less obvious choices made was database design, specifically deciding 
 
 # Setup
 
-There is a lot of setup so please read through this carefully.
+There is a bit of setup so please read through this carefully.
 
 ### Installing dependencies
 
