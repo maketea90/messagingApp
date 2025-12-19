@@ -38,7 +38,7 @@ I used Firebase for the backend as it allowed easy sign up and authentication vi
 
 ## Choices
 
-One of the less obvious choices made was database design, specifically deciding to keep a record of all pairs of users which have a message thread with each other (the "conversations" table), and linking messages sent to the specific conversation they were a part of via the conversationId.
+One of the less obvious choices made was database design, specifically deciding to keep a record of all pairs of users which have a message thread with each other (the "conversations" table), and linking messages sent, to the specific conversation they were a part of, via the conversationId.
 
 # Setup
 
