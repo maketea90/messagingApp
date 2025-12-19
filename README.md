@@ -8,13 +8,41 @@ This is a messaging app built in React-Native, with Firebase for storage/authent
 
 The landing page for this app is an email/password sign up page. Users can sign up, log in, choose a username, and begin messaging any other signed up users. Once an account is created they can also log out, or delete their account entirely.
 
-Messages load dynamically (20 most recent on initial render and 20 more at a time when you scroll to the top). When all messages have loaded the user is alerted and no more fetches are made.
+Passwords are validated, and signup/login are handled by Firebase Auth. Once the user has logged in and chosen a username they are navigated to a page with two tabs, "chats" and "profile".
 
-Deleting your account deletes all associated records in the firestore database.
+The "chats" tab contains a list of message threads with other users (any other signed up user). When an item in this list is tapped, the user is taken to the message thread with the other user.
 
-## Setup
+The message threads consist of a message box and send button (at the bottom of the screen) allowing the user to send a message in the thread.
 
-There is a bit of setup so please read through this carefully.
+Messages sent appear in real-time, and the message box and send button stick to the top of the keyboard when it appears. Messages persist and are stored in the firestore database.
+
+To return to the list of other users tap the chats tab.
+
+If messages exist already, they are loaded dynamically (20 most recent on initial render and 20 more at a time when you scroll to the top). When all messages have loaded the user is alerted and no more fetches are made.
+
+Finally, the profile tab consists of two buttons allowing the user to either log out or delete their account entirely. If the user elects to delete their account a pop up appears asking them to type the word "delete" and click confirm if they truly want to delete their account.
+
+Deleting an account deletes all associated records in the firestore database, including messages sent by the user in any conversation, and records of any conversation they were a part of.
+
+## Firestore Database Schema
+
+Firestore is NoSQL so strictly speaking there is no schema, however the database structure is shown in the file "database_schema.png".
+
+# Tech stack
+
+The main language used was JavaScript.
+
+I chose React-Native as the main framework as I wanted to build specifically a mobile messaging app, that uses React-like architecture. In short I wanted to practice my React skills.
+
+I used Firebase for the backend as it allowed easy sign up and authentication via email and password, with persistent auth access. Also, Firestore being NoSQL allowed for a flexible database design. Finally, it integrates well with JavaScript/React-Native built with expo.
+
+## Choices
+
+One of the less obvious choices made was database design, specifically deciding to keep a record of all pairs of users which have a message thread with each other (the "conversations" table), and linking messages sent to the specific conversation they were a part of via the conversationId.
+
+# Setup
+
+There is a lot of setup so please read through this carefully.
 
 ### Installing dependencies
 
@@ -48,7 +76,7 @@ The Firebase CLI will create a project and web app.
 
 - *make rules*
 
-This may not work for a few tries, if it errors out just give it some time and rerun, repeating as necessary until it manages to run properly.
+This may not work for a few tries, if it errors out just give it some time and rerun, repeating as necessary until it manages to run properly. This is because it takes firebase some time to fully create the project before adding rules and indexing.
 
 ### allow email/password signup
 
@@ -84,4 +112,4 @@ Since no users exist yet you should probably sign up some new accounts (at least
 
 ### Disclaimer
 
-The "forgotten password" feature does not actually send a password reset email as it did not seem secure to configure the domain(s) expo uses to host the app as authorised domains for sending password reset emails in firebase.
+The "forgotten password" feature does not actually send a password reset email as it was not viable to configure the domain(s) expo uses to host the app as authorised domains for sending password reset emails in firebase, as these change every time you rerun the app.

@@ -14,7 +14,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
 
 export default function IndividualConversation({ navigation, route }) {
 
-  const tabBarHeight = useBottomTabBarHeight()
+const tabBarHeight = useBottomTabBarHeight()
 
 const useGradualAnimation = () => {
   const height = useSharedValue(0);
