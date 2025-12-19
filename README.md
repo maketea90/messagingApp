@@ -52,7 +52,7 @@ first run the following commands in the terminal to install necessary dependenci
 
 - *npm install*
 
-### Create firebase project
+### Creating the firebase project
 
 The makefile handles creating a firebase project. Run the following command in the terminal:
 
@@ -78,27 +78,27 @@ The Firebase CLI will create a project and web app.
 
 This may not work for a few tries, if it errors out just give it some time and rerun, repeating as necessary until it manages to run properly. This is because it takes firebase some time to fully create the project before adding rules and indexing.
 
-### allow email/password signup
+### Allowing signup via email/password
 
 The final bit of setup is to enable sign up by email/password in the firebase project/app.
 
 You must manually enable this in the Firebase Console:
 
-    - Go to console.firebase.google.com, login via google if necessary and select your project (the default name should be "maketea90-chatapp-10").
+- Go to console.firebase.google.com, login via google if necessary and select the project (the default name should be "maketea90-chatapp-10").
     
-    - In the left navigation menu, find the Build section and click Authentication.
+- In the left navigation menu, find the Build section and click Authentication.
 
-    - Click get started.
+- Click get started.
     
-    - Select the Sign-in method tab.
+- Select the Sign-in method tab.
     
-    - Click the provider we need ("Email/Password").
+- Click the provider needed ("Email/Password").
     
-    - Toggle the Enable switch to the on position, and then click Save.
+- Toggle the Enable switch to the on position, and then click Save.
 
 ### Starting/accessing the app
 
-to start the app:
+To start the app:
 
 - *npx expo start --tunnel*
 
@@ -112,4 +112,4 @@ Since no users exist yet you should probably sign up some new accounts (at least
 
 ### Disclaimer
 
-The "forgotten password" feature does not actually send a password reset email as it was not viable to configure the domain(s) expo uses to host the app as authorised domains for sending password reset emails in firebase, as these change every time you rerun the app.
+There is a "forgotten password" feature but it doesn't actually send a password reset email because it wasn't viable to configure the domain(s) expo uses to host the app as authorised domains for sending password reset emails in Firebase (these change every time you rerun the app).
