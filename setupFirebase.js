@@ -39,7 +39,7 @@ async function setupFirebase() {
     // let createResult
     
     if(!projectExists){
-        console.log(`2. Creating project: ${PROJECT_NAME}...`)
+        console.log(`Creating project ${PROJECT_NAME}`)
 
         const createResult = await firebase.projects.create(PROJECT_NAME, {
             json: true,
@@ -47,7 +47,7 @@ async function setupFirebase() {
             })
        
 
-        console.log(`Project created with ID: ${PROJECT_NAME}`)
+        console.log(`Project created with id ${PROJECT_NAME}`)
     
     }
     const projectId = PROJECT_NAME
