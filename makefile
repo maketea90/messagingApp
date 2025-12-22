@@ -13,7 +13,7 @@ clean:
 	rm -f .env .firebaserc
 
 create-project:
-	node setup-firebase.js
+	node setupFirebase.js
 
 setup:
 	@echo "--- Running Firebase Setup Script ---"
