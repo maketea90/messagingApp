@@ -8,7 +8,7 @@ This is a messaging app built in React-Native (bundled using expo), with Firebas
 
 The landing page for this app is an email/password sign up page. Users can sign up, log in, choose a username, and begin messaging any other signed up users. Once an account is created they can also log out, or delete their account entirely.
 
-Passwords are validated, and signup/login are handled by Firebase Auth. Once the user has logged in and chosen a username they are navigated to a page with two tabs, "chats" and "profile".
+Passwords are validated, and signup/login are handled by Firebase Auth. Once the user has signed up, logged in, and chosen a username, they are navigated to a page with two tabs, "chats" and "profile".
 
 The "chats" tab contains a list of message threads with other users (any other signed up user). When an item in this list is tapped, the user is taken to the message thread with the other user.
 
