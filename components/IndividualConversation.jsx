@@ -76,19 +76,29 @@ const useGradualAnimation = () => {
 
     try {
       const q = query(messagesRef, where("conversationId", "==", conversationuid), orderBy('createdAt', 'desc'), limit(20 + loadmore))
-      const querySnapshot = await getDocs(q);
-      const documents = querySnapshot.docs.map((doc) => {
+      
+      // const querySnapshot = await getDocs(q);
+      // const documents = querySnapshot.docs.map((doc) => {
 
-        const data = doc.data()
+      //   const data = doc.data()
 
-        const id = doc.id
+      //   const id = doc.id
 
-        const document = {id, ...data}
+      //   const document = {id, ...data}
 
-        return document
-      });
+      //   return document
+      // });
 
-      setMessages([...documents])
+      // setMessages([...documents])
+
+      const unsub = onSnapshot(q, (snapshot) => {
+          const documents = snapshot.docs.map((doc) => {
+            return {id: doc.id, ...doc.data()}
+          })
+          setMessages([...documents])
+      })
+
+      return unsub
 
     } catch (e) {
       alert(`error: ${e}`)
@@ -98,10 +108,18 @@ const useGradualAnimation = () => {
   }
 
   useEffect(() => {
-
-    getConversation() 
     console.log('fetching messages')
+    let unsub
 
+    const fetch = async () => {
+      unsub = await getConversation()
+    }
+
+    fetch()
+
+    return () => {
+      if (unsub) unsub()
+    }
   }, [state.updateChat])
 
   useEffect(() => {
