@@ -108,7 +108,7 @@ You should now have access to the app on your phone (or web browser).
 
 ### Sign up and start messaging
 
-Since no users exist yet you should probably sign up some new accounts (at least two) to see if they can message each other!
+Since no users exist yet you should probably sign up, log in, and choose a username for some new accounts (at least two) to see if they can message each other!
 
 ### Disclaimer
 
