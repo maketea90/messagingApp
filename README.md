@@ -86,7 +86,7 @@ You must manually enable this in the Firebase Console:
 
 - Go to console.firebase.google.com, login via google if necessary and select the project (the default name should be "maketea90-chatapp-10").
     
-- In the left navigation menu, find the Build section and click Authentication.
+- In the left navigation menu, find the Security section and click Authentication.
 
 - Click get started.
     
